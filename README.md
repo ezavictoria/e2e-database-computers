@@ -2,9 +2,19 @@
 This repository contains an automation project using Cypress and Cucumber for testing a computer database application.
 
 ## Running the Tests
-To execute the tests, use the following command in the terminal:
+Before running the tests you need to install node in the project folder with the following command in the terminal:
+```bash
+npm install
+```
+
+To execute the tests in the terminal, use the following command:
 ```bash
 npm run test
+```
+
+To run the tests in the Cypress graphical interface use:
+```bash
+npx cypress open
 ```
 
 ## Test Observations
