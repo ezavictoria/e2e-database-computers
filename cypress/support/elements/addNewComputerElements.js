@@ -43,6 +43,10 @@ class addNewComputerElements {
     computersTable = () => {
         return '.computers'
     }
+
+    errorMsg = () => {
+        return 'span.help-inline'
+    }
     
 }
 

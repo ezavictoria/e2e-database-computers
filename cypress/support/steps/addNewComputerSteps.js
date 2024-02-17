@@ -20,6 +20,11 @@ When("fills the form with valid data", () => {
     cy.get(AddNewComputerElements.companyDropdown()).select('ASUS')
 })
 
+When("fills the form with invalid data", () => {
+    cy.get(AddNewComputerElements.introducedField()).type('2020-12')
+    cy.get(AddNewComputerElements.discontinuedField()).type('12-31')
+})
+
 When("clicks on the create button", () => {
     cy.get(AddNewComputerElements.createButton()).click()
 })
@@ -34,4 +39,11 @@ Then("the computer must be save in the database", () => {
     cy.get(AddNewComputerElements.searchButton()).click()
     cy.get(AddNewComputerElements.computersTable()).should('contain', 'Computer EZA')
 })
+
+Then("the error messages should be displayed", () => {
+    cy.get(AddNewComputerElements.errorMsg()).first().should('contain', 'Failed to refine type')
+    cy.get(AddNewComputerElements.errorMsg()).eq(1).should('contain', 'Failed to decode date')
+    cy.get(AddNewComputerElements.errorMsg()).last().should('contain', 'Failed to decode date')
+})
+
 
